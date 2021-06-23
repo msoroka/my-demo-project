@@ -59,3 +59,4 @@ nbproject
 .temp
 
 .env
+.DS_Store
