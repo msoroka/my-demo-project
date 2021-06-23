@@ -46,3 +46,18 @@ Xdebug is running on port 9003 by default. You can check xdebug config by runnin
 cat /usr/local/etc/php/conf.d/20-xdebug.ini
 ```
 
+
+
+## 2. Source code analysis
+
+### 2.1. PHPStan
+
+```bash
+docker exec -it my-demo-project-php-debug vendor/bin/phpstan analyse src 
+```
+or with a rule level
+
+```bash
+docker exec -it my-demo-project-php-debug vendor/bin/phpstan analyse src --level 8 #level from 1 to 8  
+```
+more [PHPStan docs](https://phpstan.org/user-guide/getting-started)
