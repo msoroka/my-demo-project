@@ -30,7 +30,9 @@ services:
             - my-demo-project-network
 
     php-debug:
-        image: pimcore/pimcore:PHP8.0-fpm-debug
+        build:
+            context: ./docker/php
+            dockerfile: Dockerfile
         container_name: my-demo-project-php-debug
         volumes:
             - .:/var/www/html:cached

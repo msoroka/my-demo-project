@@ -1,6 +1,4 @@
-# My demo project
-
-Showcase of my Pimcore skills.
+# My Pimcore demo project
 
 ## 1. Getting started
 
@@ -46,8 +44,6 @@ Xdebug is running on port 9003 by default. You can check xdebug config by runnin
 cat /usr/local/etc/php/conf.d/20-xdebug.ini
 ```
 
-
-
 ## 2. Source code analysis
 
 ### 2.1. PHPStan
@@ -55,9 +51,15 @@ cat /usr/local/etc/php/conf.d/20-xdebug.ini
 ```bash
 docker exec -it my-demo-project-php-debug vendor/bin/phpstan analyse src 
 ```
+
 or with a rule level
 
 ```bash
 docker exec -it my-demo-project-php-debug vendor/bin/phpstan analyse src --level 8 #level from 1 to 8  
 ```
+
 more [PHPStan docs](https://phpstan.org/user-guide/getting-started)
+
+Notes:  
+Php-from Dockerfile is authored by [Dominik Pfaffenbauer](https://www.pfaffenbauer.at/en) <dominik@pfaffenbauer.at>. I
+just only extended it with cron.
