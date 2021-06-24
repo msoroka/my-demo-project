@@ -35,7 +35,8 @@ services:
             dockerfile: Dockerfile
         container_name: my-demo-project-php-debug
         volumes:
-            - .:/var/www/html:cached
+#            - .:/var/www/html:cached
+            - nfsmount:/var/www/html
         environment:
             - PHP_IDE_CONFIG="serverName=localhost"
             - APP_ENV=dev
@@ -44,6 +45,12 @@ services:
 
 volumes:
     my-demo-project-db:
+    nfsmount:
+        driver: local
+        driver_opts:
+            type: nfs
+            o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+            device: ":${PWD}"
 
 networks:
     my-demo-project-network:
