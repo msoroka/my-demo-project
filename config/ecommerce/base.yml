@@ -1,0 +1,26 @@
+pimcore:
+    models:
+        class_overrides:
+            Pimcore\Model\DataObject\Product: App\Ecommerce\Model\Product
+
+pimcore_ecommerce_framework:
+    price_systems:
+        default:
+            id: app.default_price_system
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    app.default_price_system:
+        class: Pimcore\Bundle\EcommerceFrameworkBundle\PriceSystem\AttributePriceSystem
+        arguments:
+            $options:
+                attribute_name: price
+
+
+    Pimcore\Localization\IntlFormatter:
+        public: true
+        calls:
+            - [ setCurrencyFormat, [ 'en', '¤¤ #,##0.00' ] ]
